@@ -1,6 +1,7 @@
 package com.example.filmscollection
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -40,9 +41,16 @@ class MainActivity : AppCompatActivity() {
                 builder.setCancelable(false)
                 builder.setPositiveButton("Yes") { dialog, which ->
                     saving()
+                    val intent = Intent(this@MainActivity,SpinnerActivity::class.java)
+                    startActivity(intent)
+                    finish()
+
                 }
                 builder.setNegativeButton("No") { dialog, which ->
                     dialog.cancel()
+                    val intent = Intent(this@MainActivity,SpinnerActivity::class.java)
+                    startActivity(intent)
+                    finish()
                 }
                 val alertDialog = builder.create()
                 alertDialog.show()
